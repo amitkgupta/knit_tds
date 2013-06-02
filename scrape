@@ -1,0 +1,9 @@
+#! /opt/local/bin/python
+
+from selenium import webdriver
+
+driver = webdriver.Firefox()
+driver.get("http://www.pro-football-reference.com/years/2012/passing.htm")
+driver.execute_script("table2csv('passing');")
+open('scrape.csv', 'w').write(driver.find_element_by_xpath("//pre").text)
+driver.close()

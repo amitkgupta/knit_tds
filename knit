@@ -1,0 +1,5 @@
+#! /usr/bin/Rscript
+
+library('knitr')
+
+knit('tds2012.tex')

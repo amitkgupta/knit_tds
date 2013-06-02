@@ -1,0 +1,11 @@
+#! /bin/bash
+
+./scrape
+./knit >/dev/null 2>&1
+pdflatex tds2012-out.tex >/dev/null 
+open tds2012-out.pdf
+rm tds2012-out.tex
+rm tds2012-out.aux
+rm tds2012-out.log
+rm scrape.csv
+rm -rf cache figure

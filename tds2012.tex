@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{graphicx}
+%% begin.rcode setup, include=FALSE
+% opts_chunk$set(fig.path='figure/latex-', cache.path='cache/latex-')
+%% end.rcode
+\begin{document}
+
+After scraping data for all passing TDs in 2012, we get the following histogram for number of TD passes by team.
+
+%% begin.rcode cache=TRUE
+% scrape <- read.csv('scrape.csv')
+% raw_data <- scrape[scrape[,"X"]!="",]
+% tds_for_passers <- transform(raw_data[c("Tm","TD")], TD = as.numeric(as.character(TD)))
+% tds_for_teams <- aggregate(tds_for_passers$TD, by=list(Team=tds_for_passers$Tm), FUN=sum)
+% hist(tds_for_teams$x)
+%% end.rcode
+
+The teams with the greatest and least TDs:
+
+%% begin.rcode
+% low_high <- c(which.min(tds_for_teams$x), which.max(tds_for_teams$x))
+% tds_for_teams[low_high,"Team"]
+%% end.rcode
+
+\end{document}
